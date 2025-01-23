@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed = 5f;
     public Rigidbody2D rb;
     public Animator animator;
+    public Camera mainCamera;
     Vector2 movement;
     Vector2 shootDirection;
     private bool isShooting = false;
@@ -54,6 +55,40 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.CompareTag("Trigger")) 
+        {
+            Vector2 characterTeleportOffset = Vector2.zero;
+            Vector3 cameraTeleportOffset = Vector3.zero;
+
+            switch(other.gameObject.name)
+            {
+                case "TopDoorTrigger":
+                    characterTeleportOffset = new Vector2(0f, 3.5f);
+                    cameraTeleportOffset = new(0f, 12f);
+                    break;
+
+                case "BottomDoorTrigger":
+                    characterTeleportOffset = new Vector2(0f, -3.5f);
+                    cameraTeleportOffset = new(0f, -12f);
+                    break;
+
+                case "LeftDoorTrigger":
+                    characterTeleportOffset = new Vector2(-4.5f, 0f);
+                    cameraTeleportOffset = new(-20f, 0f);
+                    break;
+
+                case "RightDoorTrigger":
+                    characterTeleportOffset = new Vector2(4.5f, 0f);
+                    cameraTeleportOffset = new(20f, 0f);
+                    break;
+            }
+            rb.position += characterTeleportOffset;
+            mainCamera.transform.position += cameraTeleportOffset;
         }
     }
 }
