@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Stone
+  - Wall
+  - Tear
   layers:
   - Default
   - TransparentFX
@@ -13,11 +15,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Tear
+  - Wall
+  - Door
+  - Enemy
   - 
   - 
   - 
