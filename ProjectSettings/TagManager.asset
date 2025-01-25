@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Tear
   - Trigger
+  - Door
   layers:
   - Default
   - TransparentFX
