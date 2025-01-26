@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float damage = 3.5f; // Set this value as needed
-    public float range = 6.5f; // Set this value as needed
+    public float damage = 3.5f;
+    public float range = 6.5f;
     private Vector2 startPosition;
 
     void Start()
@@ -32,7 +32,8 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Stone") || other.gameObject.CompareTag("Tear")){
+        if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Stone") || other.gameObject.CompareTag("Tear"))
+        {
             Destroy(gameObject);
         }
     }

@@ -11,11 +11,16 @@ public class ChangeCameraSize : MonoBehaviour
         ChangeSize();
     }
 
-    public void ChangeSize() {
-        if(Input.GetKeyDown(KeyCode.T)) {
-            if(mainCamera.orthographicSize == defaultProjectionSize) {
+    public void ChangeSize()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            if (mainCamera.orthographicSize == defaultProjectionSize)
+            {
                 mainCamera.orthographicSize = newProjectionSize;
-            } else {
+            }
+            else
+            {
                 mainCamera.orthographicSize = defaultProjectionSize;
             }
         }

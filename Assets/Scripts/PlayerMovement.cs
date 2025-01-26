@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     void Update() // This is for input
     {
         RegenerateRoomsOnKeyPress();
-        // Bewegungseingabe
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
@@ -65,14 +65,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other) 
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Trigger")) 
+        if (other.CompareTag("Trigger"))
         {
             Vector2 characterTeleportOffset = Vector2.zero;
             Vector3 cameraTeleportOffset = Vector3.zero;
 
-            switch(other.gameObject.name)
+            switch (other.gameObject.name)
             {
                 case "TopDoorTrigger":
                     characterTeleportOffset = new Vector2(0f, 3.5f);
@@ -102,9 +102,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-           roomManager.RegenerateRooms();
-           rb.position = Vector2.zero;
-           mainCamera.transform.position = new Vector3(0, 0, -10);
+            roomManager.RegenerateRooms();
+            rb.position = Vector2.zero;
+            mainCamera.transform.position = new Vector3(0, 0, -10);
         }
     }
 }

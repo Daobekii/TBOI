@@ -20,14 +20,13 @@ public class EnemyController : MonoBehaviour
     private bool chooseDirection = false;
     private bool isDead = false;
     private Vector3 randomDirection;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         currentHP = maxHP;
     }
 
-    // Update is called once per frame
     void Update()
     {
         switch (currentState)

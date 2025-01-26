@@ -17,7 +17,7 @@ public class BulletController : MonoBehaviour
 
     void Shoot(float x, float y)
     {
-        Vector2 direction = new Vector2(x, y).normalized; // Richtung normieren
+        Vector2 direction = new Vector2(x, y).normalized;
         GameObject bullet = Instantiate(bulletPrefab, playerRb.position, Quaternion.identity);
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
         bulletRb.linearVelocity = direction * shotSpeed;
