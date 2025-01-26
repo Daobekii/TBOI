@@ -9,9 +9,16 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     Vector2 shootDirection;
     private bool isShooting = false;
+    private RoomManager roomManager;
+
+    void Start()
+    {
+        roomManager = FindFirstObjectByType<RoomManager>();
+    }
 
     void Update() // This is for input
     {
+        RegenerateRoomsOnKeyPress();
         // Bewegungseingabe
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
@@ -89,6 +96,15 @@ public class PlayerMovement : MonoBehaviour
             }
             rb.position += characterTeleportOffset;
             mainCamera.transform.position += cameraTeleportOffset;
+        }
+    }
+    private void RegenerateRoomsOnKeyPress()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+           roomManager.RegenerateRooms();
+           rb.position = Vector2.zero;
+           mainCamera.transform.position = new Vector3(0, 0, -10);
         }
     }
 }

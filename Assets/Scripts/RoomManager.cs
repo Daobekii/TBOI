@@ -201,7 +201,7 @@ public class RoomManager : MonoBehaviour
         }
     }
 
-    private void RegenerateRooms()
+    public void RegenerateRooms()
     {
         roomObjects.ForEach(Destroy);
         roomObjects.Clear();
